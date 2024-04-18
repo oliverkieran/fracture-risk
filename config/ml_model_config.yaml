@@ -1,0 +1,247 @@
+rsf:
+  all_visits:
+    vertebral:
+      n_estimators: 100
+      max_depth: 5
+      min_samples_split: 15
+      min_samples_leaf: 5
+
+    hip:
+      n_estimators: 250
+      max_depth: 4
+      min_samples_split: 7
+      min_samples_leaf: 3
+
+    wrist:
+      n_estimators: 100
+      max_depth: 2
+      min_samples_split: 5
+      min_samples_leaf: 4
+
+    any:
+      n_estimators: 250
+      max_depth: 4
+      min_samples_split: 15
+      min_samples_leaf: 4
+
+xgboost:
+  all_visits:
+    aft:
+      vertebral:
+        objective: survival:aft
+        eval_metric: aft-nloglik
+        tree_method: hist
+        learning_rate: 0.04274991130624599
+        aft_loss_distribution: normal
+        aft_loss_distribution_scale: 1.6787522386602831
+        max_depth: 3
+        subsample: 0.4
+        lambda: 0.28624256377065016
+        alpha: 3.7721963655705766
+        num_boost_round: 141
+
+      hip:
+        objective: survival:aft
+        eval_metric: aft-nloglik
+        tree_method: hist
+        learning_rate: 0.051412106790220784
+        aft_loss_distribution: logistic
+        aft_loss_distribution_scale: 1.3367629579198772
+        max_depth: 3
+        subsample: 0.5
+        lambda: 7.844175512598556
+        alpha: 0.49967329845272745
+        num_boost_round: 156
+
+      wrist:
+        objective: survival:aft
+        eval_metric: aft-nloglik
+        tree_method: hist
+        learning_rate: 0.09995971019392756
+        aft_loss_distribution: normal
+        aft_loss_distribution_scale: 1.3348333612405312
+        max_depth: 3
+        subsample: 0.8
+        lambda: 3.1486763006523772
+        alpha: 0.5457727635859762
+        num_boost_round: 161
+
+      any:
+        objective: survival:aft
+        eval_metric: aft-nloglik
+        tree_method: hist
+        learning_rate: 0.08771097449276302
+        aft_loss_distribution: normal
+        aft_loss_distribution_scale: 1.3605042790617734
+        max_depth: 2
+        subsample: 0.30000000000000004
+        lambda: 8.003611275494048
+        alpha: 0.6662757763812591
+        num_boost_round: 141
+
+      monotonic:
+        vertebral:
+          objective: survival:aft
+          eval_metric: aft-nloglik
+          tree_method: hist
+          monotone_constraints:
+            tscore_ls: 1
+            tscore_neck: 1
+            tscore_totalHip: 1
+            min_tscore: 1
+          learning_rate: 0.025674188755904517
+          aft_loss_distribution: logistic
+          aft_loss_distribution_scale: 1.3322946769041606
+          max_depth: 4
+          subsample: 0.2
+          lambda: 0.37567629140608116
+          alpha: 0.11201146577631012
+          num_boost_round: 132
+
+        hip:
+          objective: survival:aft
+          eval_metric: aft-nloglik
+          tree_method: hist
+          monotone_constraints:
+            tscore_ls: 1
+            tscore_neck: 1
+            tscore_totalHip: 1
+            min_tscore: 1
+          learning_rate: 0.03588015386975394
+          aft_loss_distribution: normal
+          aft_loss_distribution_scale: 1.493930314948678
+          max_depth: 2
+          subsample: 0.2
+          lambda: 4.310417932949472
+          alpha: 4.536697086030982
+          num_boost_round: 180
+
+        wrist:
+          objective: survival:aft
+          eval_metric: aft-nloglik
+          tree_method: hist
+          monotone_constraints:
+            tscore_ls: 1
+            tscore_neck: 1
+            tscore_totalHip: 1
+            min_tscore: 1
+          learning_rate: 0.28250285985199824
+          aft_loss_distribution: normal
+          aft_loss_distribution_scale: 0.14067603509655935
+          max_depth: 3
+          subsample: 0.7
+          lambda: 0.15993740422038827
+          alpha: 1.9539344641063874
+          num_boost_round: 193
+
+        any:
+          objective: survival:aft
+          eval_metric: aft-nloglik
+          tree_method: hist
+          monotone_constraints:
+            tscore_ls: 1
+            tscore_neck: 1
+            tscore_totalHip: 1
+            min_tscore: 1
+          learning_rate: 0.065850
+          aft_loss_distribution: normal
+          aft_loss_distribution_scale: 1.630332
+          max_depth: 3
+          subsample: 0.4
+          lambda: 0.589211
+          alpha: 4.341071
+          num_boost_round: 94
+
+    cox:
+      vertebral:
+        objective: survival:cox
+        learning_rate: 0.014494437292299902
+        max_depth: 4
+        subsample: 0.30000000000000004
+        lambda: 0.1950523435706567
+        alpha: 1.006878224726981
+        num_boost_round: 194
+
+      hip:
+        objective: survival:cox
+        learning_rate: 0.03776728160613452
+        max_depth: 3
+        subsample: 0.5
+        lambda: 7.320181832884236
+        alpha: 0.4085515004050613
+        num_boost_round: 196
+
+      wrist:
+        objective: survival:cox
+        learning_rate: 0.09901211498129332
+        max_depth: 3
+        subsample: 0.7
+        lambda: 0.37106414101367713
+        alpha: 0.15413943591331764
+        num_boost_round: 193
+
+      any:
+        objective: survival:cox
+        learning_rate: 0.05817533790284223
+        max_depth: 2
+        subsample: 0.8
+        lambda: 0.42365248875631184
+        alpha: 6.199615039783515
+        num_boost_round: 190
+
+      monotonic:
+        vertebral:
+          objective: survival:cox
+          monotone_constraints:
+            tscore_ls: -1
+            tscore_neck: -1
+            tscore_totalHip: -1
+            min_tscore: -1
+          learning_rate: 0.01580731265151517
+          max_depth: 4
+          subsample: 0.4
+          lambda: 1.2016583136982633
+          alpha: 0.2457493418068767
+          num_boost_round: 170
+
+        hip:
+          objective: survival:cox
+          monotone_constraints:
+            tscore_ls: -1
+            tscore_neck: -1
+            tscore_totalHip: -1
+            min_tscore: -1
+          learning_rate: 0.029405866265876567
+          max_depth: 4
+          subsample: 0.5
+          lambda: 4.856110478257446
+          alpha: 0.4733650426753948
+          num_boost_round: 135
+
+        wrist:
+          objective: survival:cox
+          monotone_constraints:
+            tscore_ls: -1
+            tscore_neck: -1
+            tscore_totalHip: -1
+            min_tscore: -1
+          learning_rate: 0.051633
+          max_depth: 3
+          subsample: 0.8
+          lambda: 0.152885
+          alpha: 0.502213
+          num_boost_round: 121
+
+        any:
+          objective: survival:cox
+          monotone_constraints:
+            tscore_ls: -1
+            tscore_neck: -1
+            tscore_totalHip: -1
+            min_tscore: -1
+          learning_rate: 0.08842680511241374
+          max_depth: 3
+          subsample: 0.8
+          lambda: 0.33220889623962807
+          alpha: 9.910743996892009
+          num_boost_round: 151

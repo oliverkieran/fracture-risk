@@ -1,0 +1,4 @@
+,cox,cox_lower,cox_upper,xgb_aft_mono,xgb_aft_mono_lower,xgb_aft_mono_upper,xgb_cox_mono,xgb_cox_mono_lower,xgb_cox_mono_upper
+vertebral,0.7077,0.57,0.831,0.7074,0.555,0.854,0.7392,0.582,0.863
+hip,0.8251,0.701,0.943,0.7773,0.617,0.894,0.7512,0.636,0.88
+any,0.5942,0.542,0.648,0.6328,0.581,0.688,0.6165,0.563,0.681
